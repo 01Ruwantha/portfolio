@@ -4,53 +4,8 @@
    =================================================================== */
 
 :root,
-[data-theme="dark"] {
-  /* Color Palette - Dark Mode Default (Tech Modern Obsidian) */
-  --bg-primary: #07090e;
-  --bg-secondary: #0d121c;
-  --bg-card: #121824;
-  --bg-card-hover: #182234;
-  --bg-glass: rgba(13, 18, 28, 0.78);
-  --border-color: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(59, 130, 246, 0.55);
-
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-
-  --footer-bg: #05070a;
-  --footer-border: rgba(255, 255, 255, 0.08);
-
-  --accent-primary: #2563eb;
-  --accent-primary-hover: #1d4ed8;
-  --accent-glow: rgba(37, 99, 235, 0.3);
-  --accent-cyan: #06b6d4;
-  --accent-emerald: #10b981;
-  --accent-amber: #f59e0b;
-  --accent-purple: #8b5cf6;
-
-  --gradient-brand: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
-  --gradient-accent: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-  --gradient-shine: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0) 100%);
-  --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
-
-  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.25);
-  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.35);
-  --shadow-lg: 0 14px 35px -5px rgba(0, 0, 0, 0.5), 0 8px 12px -6px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 30px rgba(37, 99, 235, 0.35);
-
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
-  --radius-full: 9999px;
-
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-fast: all 0.15s ease;
-}
-
-/* Light Mode Overrides */
 [data-theme="light"] {
+  /* Color Palette - Light Mode Default */
   --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;
   --bg-card: #ffffff;
@@ -66,11 +21,56 @@
   --footer-bg: #f1f5f9;
   --footer-border: #e2e8f0;
 
+  --accent-primary: #2563eb;
+  --accent-primary-hover: #1d4ed8;
   --accent-glow: rgba(37, 99, 235, 0.15);
+  --accent-cyan: #06b6d4;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-purple: #8b5cf6;
+
+  --gradient-brand: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+  --gradient-accent: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  --gradient-shine: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0) 100%);
+  --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+
   --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 14px 30px -5px rgba(0, 0, 0, 0.08);
   --shadow-glow: 0 0 25px rgba(37, 99, 235, 0.18);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.15s ease;
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] {
+  --bg-primary: #07090e;
+  --bg-secondary: #0d121c;
+  --bg-card: #121824;
+  --bg-card-hover: #182234;
+  --bg-glass: rgba(13, 18, 28, 0.78);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(59, 130, 246, 0.55);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --footer-bg: #05070a;
+  --footer-border: rgba(255, 255, 255, 0.08);
+
+  --accent-glow: rgba(37, 99, 235, 0.3);
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 14px 35px -5px rgba(0, 0, 0, 0.5), 0 8px 12px -6px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 30px rgba(37, 99, 235, 0.35);
 }
 
 /* Base Reset & Smooth Scroll */
@@ -1165,8 +1165,8 @@ section {
   right: 14px;
   background: rgba(10, 13, 20, 0.85);
   backdrop-filter: blur(8px);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 0.75rem;
   font-weight: 500;
   padding: 0.35rem 0.8rem;

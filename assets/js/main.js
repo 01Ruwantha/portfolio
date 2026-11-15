@@ -340,7 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // 1. Theme Management (Dark / Light)
 function initTheme() {
   const toggleBtn = document.getElementById("themeToggle");
-  const currentTheme = localStorage.getItem("theme") || "dark";
+  const currentTheme = localStorage.getItem("theme") || "light";
   document.documentElement.setAttribute("data-theme", currentTheme);
   updateThemeIcon(currentTheme);
 
@@ -432,7 +432,7 @@ function initHeroCanvas() {
   function animate() {
     if (isCanvasVisible) {
       ctx.clearRect(0, 0, width, height);
-      const isDark = document.documentElement.getAttribute("data-theme") !== "light";
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
       const dotColor = isDark ? "rgba(6, 182, 212, " : "rgba(37, 99, 235, ";
       const lineColor = isDark ? "rgba(37, 99, 235, " : "rgba(6, 182, 212, ";
 
