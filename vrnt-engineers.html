@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VRNT Engineers | Ruwantha Madhushan</title>
+    <meta name="description" content="VRNT Engineers - Professional invoicing and estimation tool tailored for construction contractors and engineers.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text-dark: #0f172a;
+            --text-light: #475569;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.65;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+        a { text-decoration: none; color: var(--primary-color); transition: all 0.3s ease; }
+        a:hover { color: var(--primary-dark); }
+        header {
+            background-color: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-weight: 700; font-size: 1.35rem; color: var(--text-dark); display: flex; align-items: center; gap: 8px; }
+        .logo-badge { background: #2563eb; color: #fff; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 800; }
+        .nav-links a { margin-left: 20px; color: var(--text-light); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--primary-color); }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        .btn:hover { background-color: var(--primary-dark); color: var(--white); transform: translateY(-2px); }
+        .btn-playstore { background: #01875f; color: #fff; }
+        .btn-playstore:hover { background: #00704e; color: #fff; }
+        .btn-outline {
+            background-color: transparent;
+            border: 1.5px solid var(--border-color);
+            color: var(--text-dark);
+        }
+        .btn-outline:hover { border-color: var(--primary-color); color: var(--primary-color); }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 25px; font-weight: 600; color: var(--primary-color); }
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .app-icon-large {
+            width: 100px;
+            height: 100px;
+            border-radius: 22px;
+            object-fit: cover;
+            display: block;
+            flex-shrink: 0;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            background-color: #e8f0fe;
+        }
+        .app-title h1 { font-size: 2.1rem; margin-bottom: 6px; letter-spacing: -0.02em; }
+        .app-title p { color: var(--text-light); font-size: 1.05rem; }
+        .action-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0 30px; }
+
+        .screenshots-section { margin: 30px 0 35px; }
+        .section-subtitle {
+            font-size: 1.35rem;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+        .screenshots-scroll {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding: 6px 2px 18px 2px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        .screenshots-scroll::-webkit-scrollbar { height: 8px; }
+        .screenshots-scroll::-webkit-scrollbar-track { background: #eef1f5; border-radius: 4px; }
+        .screenshots-scroll::-webkit-scrollbar-thumb { background: #c2c8d0; border-radius: 4px; }
+        .screenshot-card {
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-color);
+            background: #ffffff;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .screenshot-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+        }
+        .screenshot-card img {
+            display: block;
+            height: 420px;
+            width: auto;
+            object-fit: contain;
+        }
+        .detail-content {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+        .detail-content strong { color: var(--text-dark); }
+        .detail-content h3 {
+            color: var(--text-dark);
+            margin: 28px 0 12px;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .detail-content h3:first-child { margin-top: 0; }
+        .privacy-box {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f1f5f9;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+        }
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            margin-top: 60px;
+        }
+        footer a { color: #94a3b8; margin: 0 10px; }
+        footer a:hover { color: #ffffff; }
+        @media (max-width: 600px) {
+            .app-header { flex-direction: column; align-items: flex-start; }
+            .app-title h1 { font-size: 1.7rem; }
+            .detail-content { padding: 25px 20px; }
+            .screenshot-card img { height: 320px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-badge">RM</span>
+                <span>Ruwantha Madhushan</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#projects">All Projects</a>
+                <a href="index.html#studio">Madhushan Studios</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="https://01ruwantha.github.io/CV/" target="_blank">Resume ↗</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="index.html#studio" class="back-link">← Back to Portfolio</a>
+
+        <div class="app-header">
+            <img src="https://play-lh.googleusercontent.com/yTdKci_R2glOmmrDUkj8o8CcdIXVUa71w2Qwu2hYG4BSekzktZvcxeFp7NBDb1IisqE8-wZqx0t-JGCyQ2YQ6w=w480-h960-rw" alt="VRNT Engineers Icon" class="app-icon-large">
+            <div class="app-title">
+                <h1>VRNT Engineers</h1>
+                <p>Professional Invoicing & Estimation Tool for Construction Businesses</p>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a href="https://play.google.com/store/apps/details?id=com.vrnt.engineers" target="_blank" class="btn btn-playstore">▶ Get on Google Play</a>
+            <a href="https://01nimantha.github.io/VRNT-Engineers-Privacy-Policy/" target="_blank" class="btn btn-outline">🔒 View Privacy Policy</a>
+        </div>
+
+        <!-- Screenshots -->
+        <div class="screenshots-section">
+            <h2 class="section-subtitle">Application Screenshots</h2>
+            <div class="screenshots-scroll">
+                <div class="screenshot-card">
+                    <img src="https://play-lh.googleusercontent.com/QxzFYE4HTm_Vd2YX2Y3BGwl3TG4rnqig63uzyUDXG24VPn7PcXQGHWWIFGshnB4qBrIzoKFGE4rmMsAgS5qHvA=w1052-h592-rw" alt="VRNT Engineers Screenshot 1" loading="lazy">
+                </div>
+                <div class="screenshot-card">
+                    <img src="https://play-lh.googleusercontent.com/mIQ3Uu_kVF-eGnyiEvds9kB88bj3eptQJ0_RE90yK7Qae3WNlYNnIZAD6vEU3_BsgUbBd4beANRfLNOyVfd7ww=w1052-h592-rw" alt="VRNT Engineers Screenshot 2" loading="lazy">
+                </div>
+                <div class="screenshot-card">
+                    <img src="https://play-lh.googleusercontent.com/pb3sP13X5W6wEv4xf9ni8YqGYmD3JceLHwdlKrhC3XfAOQtaUJ0Ak6i9GZXiliUwv7QkTJ7hnESlrA8SAOlJ=w1052-h592-rw" alt="VRNT Engineers Screenshot 3" loading="lazy">
+                </div>
+                <div class="screenshot-card">
+                    <img src="https://play-lh.googleusercontent.com/o5bFza2EUnOdorhdeH0ZVBqo08DrFrABBuCZYeuQ3hVClaenNsgQBJ0n3kSuGIM3CDVv2iSYKn8-wB0b8uj-iDY=w1052-h592-rw" alt="VRNT Engineers Screenshot 4" loading="lazy">
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-content">
+            <h3>Overview</h3>
+            <p>VRNT Engineers is a specialized mobile application engineered for construction contractors, site engineers, and project managers to streamline estimation, invoicing, and quotation workflows.</p>
+
+            <h3>Key Features</h3>
+            <p>
+                • <strong>Instant PDF Invoices:</strong> Generates formatted PDFs with itemized breakdown and one-tap WhatsApp / Email sharing.<br>
+                • <strong>Custom Categories:</strong> Create tailored categories for materials, labor, machinery, masonry, roofing, and plumbing.<br>
+                • <strong>Bank & Business Details:</strong> Save account, branch, and company branding settings.<br>
+                • <strong>Offline Reliability:</strong> Works seamlessly on active job sites without requiring internet connectivity.<br>
+                • <strong>Calendar Task Planning:</strong> Keep track of project milestones and invoice due dates.
+            </p>
+
+            <div class="privacy-box">
+                <strong>Privacy Policy:</strong> 
+                <a href="https://01nimantha.github.io/VRNT-Engineers-Privacy-Policy/" target="_blank">View full Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Ruwantha Madhushan • <a href="https://01nimantha.github.io/madhushan-studios/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Madhushan Studios</a>. All rights reserved.</p>
+        <div style="margin-top: 15px;">
+            <a href="index.html#hero">Home</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="https://01nimantha.github.io/madhushan-studios/" target="_blank" rel="noopener noreferrer">Madhushan Studios</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </footer>
+</body>
+</html>

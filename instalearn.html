@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaLearn – Education Management Platform | P.V. Nimantha Madhushan</title>
+    <meta name="description" content="InstaLearn - Web-based education management platform developed with React, Spring Boot, and MySQL by Department of Computer Science Group 17, University of Ruhuna.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text-dark: #0f172a;
+            --text-light: #475569;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.65;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+        a { text-decoration: none; color: var(--primary-color); transition: all 0.3s ease; }
+        a:hover { color: var(--primary-dark); }
+        header {
+            background-color: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-weight: 700; font-size: 1.35rem; color: var(--text-dark); display: flex; align-items: center; gap: 8px; }
+        .logo-badge { background: #2563eb; color: #fff; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 800; }
+        .nav-links a { margin-left: 20px; color: var(--text-light); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--primary-color); }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        .btn:hover { background-color: var(--primary-dark); color: var(--white); transform: translateY(-2px); }
+        .btn-outline {
+            background-color: transparent;
+            border: 1.5px solid var(--border-color);
+            color: var(--text-dark);
+        }
+        .btn-outline:hover { border-color: var(--primary-color); color: var(--primary-color); }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 25px; font-weight: 600; color: var(--primary-color); }
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .app-icon-large {
+            width: 100px;
+            height: 100px;
+            border-radius: 22px;
+            object-fit: cover;
+            display: block;
+            flex-shrink: 0;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            background-color: #e8f0fe;
+        }
+        .app-title h1 { font-size: 2.1rem; margin-bottom: 6px; letter-spacing: -0.02em; }
+        .app-title p { color: var(--text-light); font-size: 1.05rem; }
+        .action-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0 30px; }
+
+        .screenshots-section { margin: 30px 0 35px; }
+        .section-subtitle {
+            font-size: 1.35rem;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+        .screenshots-scroll {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding: 6px 2px 18px 2px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        .screenshots-scroll::-webkit-scrollbar { height: 8px; }
+        .screenshots-scroll::-webkit-scrollbar-track { background: #eef1f5; border-radius: 4px; }
+        .screenshots-scroll::-webkit-scrollbar-thumb { background: #c2c8d0; border-radius: 4px; }
+        .screenshot-card {
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-color);
+            background: #ffffff;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .screenshot-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+        }
+        .screenshot-card img {
+            display: block;
+            height: 380px;
+            width: auto;
+            object-fit: contain;
+        }
+        .detail-content {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+        .detail-content strong { color: var(--text-dark); }
+        .detail-content h3 {
+            color: var(--text-dark);
+            margin: 28px 0 12px;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .detail-content h3:first-child { margin-top: 0; }
+        .info-box {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f1f5f9;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+        }
+        .tag-pill {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 2px 4px 2px 0;
+        }
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            margin-top: 60px;
+        }
+        footer a { color: #94a3b8; margin: 0 10px; }
+        footer a:hover { color: #ffffff; }
+        @media (max-width: 600px) {
+            .app-header { flex-direction: column; align-items: flex-start; }
+            .app-title h1 { font-size: 1.7rem; }
+            .detail-content { padding: 25px 20px; }
+            .screenshot-card img { height: 260px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-badge">NM</span>
+                <span>P.V. Nimantha Madhushan</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#projects">All Projects</a>
+                <a href="index.html#skills">Skills</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="https://01nimantha.github.io/CV/" target="_blank">Resume ↗</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="index.html#projects" class="back-link">← Back to Portfolio</a>
+
+        <div class="app-header">
+            <img src="assets/images/InstaLearn/1741843492400.jpeg" alt="InstaLearn Icon" class="app-icon-large">
+            <div class="app-title">
+                <h1>InstaLearn – Unified Education Platform</h1>
+                <p>Web-based Tuition Center Management System with QR Attendance & Exam Automation</p>
+                <div style="margin-top: 8px;">
+                    <span class="tag-pill">React</span>
+                    <span class="tag-pill">Spring Boot</span>
+                    <span class="tag-pill">MySQL</span>
+                    <span class="tag-pill">Redux</span>
+                    <span class="tag-pill">REST APIs</span>
+                    <span class="tag-pill">University of Ruhuna</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a href="https://www.linkedin.com/in/01nimantha/" target="_blank" class="btn">💼 Connect on LinkedIn</a>
+            <a href="https://github.com/01nimantha" target="_blank" class="btn btn-outline">📦 View GitHub Profile</a>
+        </div>
+
+        <!-- Screenshots -->
+        <div class="screenshots-section">
+            <h2 class="section-subtitle">System Dashboards & Screenshots</h2>
+            <div class="screenshots-scroll">
+                <div class="screenshot-card">
+                    <img src="assets/images/InstaLearn/1741843492400.jpeg" alt="InstaLearn Dashboard" loading="lazy">
+                </div>
+                <div class="screenshot-card">
+                    <img src="assets/images/InstaLearn/1741843541576.jpeg" alt="InstaLearn Analytics" loading="lazy">
+                </div>
+                <div class="screenshot-card">
+                    <img src="assets/images/InstaLearn/1741843593131.jpeg" alt="InstaLearn Exam Pool" loading="lazy">
+                </div>
+                <div class="screenshot-card">
+                    <img src="assets/images/InstaLearn/1741843648663.jpeg" alt="InstaLearn Students Management" loading="lazy">
+                </div>
+                <div class="screenshot-card">
+                    <img src="assets/images/InstaLearn/1741843693096.jpeg" alt="InstaLearn QR Attendance" loading="lazy">
+                </div>
+                <div class="screenshot-card">
+                    <img src="assets/images/InstaLearn/1741843731367.jpeg" alt="InstaLearn Progress Tracking" loading="lazy">
+                </div>
+                <div class="screenshot-card">
+                    <img src="assets/images/InstaLearn/1741843797904.jpeg" alt="InstaLearn Dashboard Overview" loading="lazy">
+                </div>
+                <div class="screenshot-card">
+                    <img src="assets/images/InstaLearn/1741843857778.jpeg" alt="InstaLearn Reports & Finance" loading="lazy">
+                </div>
+                <div class="screenshot-card">
+                    <img src="assets/images/InstaLearn/1741843907609.jpeg" alt="InstaLearn Admin Panel" loading="lazy">
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-content">
+            <h3>Project Overview</h3>
+            <p>As part of Group 17 from the <strong>Department of Computer Science, University of Ruhuna</strong>, under the supervision of <strong>Mrs. T.D.G. Geethika</strong>, we engineered <strong>InstaLearn</strong> — an enterprise-grade education management platform designed to automate and streamline operations in tuition centers.</p>
+
+            <h3>Core Capabilities</h3>
+            <p>
+                ✅ <strong>QR-Based Attendance Management:</strong> Instant camera and handheld barcode scanner check-ins that notify parents in real time.<br>
+                ✅ <strong>Role-Based Portals:</strong> Secure, tailored dashboards for administrators, teachers, students, and parents.<br>
+                ✅ <strong>Exam Question Pool & Automation:</strong> Centralized test generation, automatic grading, and marks distribution.<br>
+                ✅ <strong>Progress Tracking:</strong> Visual analytics representing attendance rates, test performance, and individual milestones.<br>
+                ✅ <strong>Payment Gateway Integration:</strong> Online fee payments with invoice generation and automated reminder alerts.
+            </p>
+
+            <h3>Technical Architecture</h3>
+            <p>
+                • <strong>Frontend:</strong> React.js, Redux State Management, Bootstrap 5, CSS3.<br>
+                • <strong>Backend:</strong> Spring Boot RESTful API with JPA/Hibernate.<br>
+                • <strong>Database:</strong> MySQL relational database schema with optimized indexing.<br>
+                • <strong>Version Control & UI:</strong> Git, GitHub, and Figma prototyping.
+            </p>
+
+            <div class="info-box">
+                <strong>Project Team (Group 17 - University of Ruhuna):</strong><br>
+                • P.V. Nimantha Madhushan<br>
+                • Maleesha Wijekoon<br>
+                • Dinithi Madushika<br>
+                • Sudesh Tharaka<br>
+                • Arshani Muthumali
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 P.V. Nimantha Madhushan. All rights reserved.</p>
+        <div style="margin-top: 15px;">
+            <a href="index.html#hero">Home</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#skills">Skills</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </footer>
+</body>
+</html>
